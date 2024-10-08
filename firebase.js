@@ -1,4 +1,11 @@
 // Tệp firebase.js
+// Thêm Firebase SDK vào tệp này
+// Thêm Firebase App
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+// Thêm Firebase Firestore
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+// Thêm Firebase Authentication
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 
 // Firebase configuration (lấy từ Firebase Console)
  const firebaseConfig = {
