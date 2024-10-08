@@ -3,61 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Notes</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-      margin: 0;
-      padding: 20px;
-    }
-    .container {
-      max-width: 600px;
-      margin: auto;
-      background-color: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-    }
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    button {
-      padding: 10px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #218838;
-    }
-    .note {
-      background-color: #f8f9fa;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 5px;
-    }
-  </style>
+  <title>Ghi chú Firebase</title>
+  <!-- Thêm Firebase SDK từ phiên bản 8 để không dùng module -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <!-- Liên kết file script.js -->
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <div class="container">
-    <h1>My Notes</h1>
-    <input type="text" id="title" placeholder="Enter title">
-    <textarea id="description" placeholder="Enter description"></textarea>
-    <textarea id="solution" placeholder="Enter solution"></textarea>
+  <h1>Ghi chú của tôi</h1>
+  
+  <!-- Form để nhập tiêu đề và ghi chú -->
+  <div>
+    <label for="title">Tiêu đề:</label>
+    <input type="text" id="title" placeholder="Nhập tiêu đề">
+    <br>
+    <label for="description">Mô tả:</label>
+    <textarea id="description" placeholder="Nhập mô tả"></textarea>
+    <br>
+    <label for="solution">Phương án giải quyết:</label>
+    <textarea id="solution" placeholder="Nhập phương án giải quyết"></textarea>
+    <br>
     <button onclick="addNote()">Save Note</button>
-    <h2>Notes</h2>
-    <div id="notes"></div>
   </div>
 
-  <script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js"></script>
-  <script src="script.js"></script>
+  <!-- Danh sách các ghi chú sẽ hiển thị ở đây -->
+  <div id="notes"></div>
 </body>
 </html>
