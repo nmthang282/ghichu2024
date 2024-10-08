@@ -1,19 +1,15 @@
 
-
-// Hàm đăng ký
+// Đăng kí
 function register() {
-    const email = document.getElementById('registerEmail').value;
-    const password = document.getElementById('registerPassword').value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-    auth.createUserWithEmailAndPassword(email, password)
+    firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((userCredential) => {
-            // Đăng ký thành công
-            alert('Đăng ký thành công!');
-            // Chuyển hướng đến trang đăng nhập
-            window.location.href = 'login.html'; // Chuyển hướng về trang đăng nhập
+            // Đăng ký thành công, chuyển hướng về trang đăng nhập
+            window.location.href = 'login.html';
         })
         .catch((error) => {
-            // Xử lý lỗi
             alert(error.message);
         });
 }
