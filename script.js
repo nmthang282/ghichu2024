@@ -14,3 +14,48 @@
 //firebase.initializeApp(firebaseConfig);
 //firebase.analytics();
 
+// Thêm ghi chú vào database
+function addNote() {
+  const title = document.getElementById('title').value;
+  const description = document.getElementById('description').value;
+  const solution = document.getElementById('solution').value;
+
+  if (title && description && solution) {
+    const noteId = db.ref().child('notes').push().key;
+    db.ref('notes/' + noteId).set({
+      title: title,
+      description: description,
+      solution: solution
+    }).then(() => {
+      document.getElementById('title').value = '';
+      document.getElementById('description').value = '';
+      document.getElementById('solution').value = '';
+      loadNotes();
+    });
+  }
+}
+
+// Tải ghi chú từ Firebase và hiển thị
+function loadNotes() {
+  const notesRef = db.ref('notes');
+  notesRef.on('value', (snapshot) => {
+    const notes = snapshot.val();
+    const notesContainer = document.getElementById('notes');
+    notesContainer.innerHTML = '';
+
+    for (let id in notes) {
+      const note = notes[id];
+      const noteDiv = document.createElement('div');
+      noteDiv.classList.add('note');
+      noteDiv.innerHTML = `
+        <h3>${note.title}</h3>
+        <p>${note.description}</p>
+        <p><strong>Solution:</strong> ${note.solution}</p>
+      `;
+      notesContainer.appendChild(noteDiv);
+    }
+  });
+}
+
+// Load notes khi trang được mở
+loadNotes();
