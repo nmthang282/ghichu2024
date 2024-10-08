@@ -1,11 +1,4 @@
-// Khởi tạo Firebase
-const firebaseConfig = {
-    // Thay bằng cấu hình Firebase của bạn
-};
 
-firebase.initializeApp(firebaseConfig);
-
-const auth = firebase.auth();
 
 // Hàm đăng nhập
 function login() {
