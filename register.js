@@ -2,7 +2,7 @@
 // Đăng kí
 function register() {
     const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    const password = document.getElementById("register").value;
 
     firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((userCredential) => {
