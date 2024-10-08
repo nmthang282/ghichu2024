@@ -15,13 +15,3 @@
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// Kiểm tra trạng thái đăng nhập
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // Người dùng đã đăng nhập
-    console.log("User is logged in:", user.email);
-  } else {
-    // Người dùng chưa đăng nhập, chuyển hướng đến trang đăng nhập
-    window.location.href = "login.html";
-  }
-});
